@@ -35,9 +35,6 @@ firebase_admin.initialize_app(firebase_cred, {'storageBucket': os.getenv("FIREBA
 API_URL = os.getenv("HF_API_URL")
 headers = {"Authorization": f"Bearer {os.getenv('HF_AUTH_TOKEN')}"}
 
-# API_URL = "https://api-inference.huggingface.co/models/facebook/maskformer-swin-large-ade"
-# headers = {"Authorization": "Bearer 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"}
-
 def query_api(filename):
     try:
         with open(filename, "rb") as f:
@@ -174,11 +171,3 @@ def main_process(floorImage, tileImage):
     
     except Exception as e:
         return {"Error in Main-Process Function:":e}
-
-# # URLs for images
-# floorImage = "https://firebasestorage.googleapis.com/v0/b/see-or-show.appspot.com/o/floor%2Froom-1.avif?alt=media&token=a99c5c80-ed75-408f-b8d4-effc71f629ba"
-# tileImage = "https://firebasestorage.googleapis.com/v0/b/see-or-show.appspot.com/o/tiles%2Ftil.jpg?alt=media&token=02239a50-efc0-49e8-a745-f643caf99d6e"
-
-# # Call the main processing function
-# result_url = main_process(floorImage, tileImage)
-# print("Result URL:", result_url)
