@@ -57,7 +57,7 @@ def load_images(floor_filename, tile_filename):
     
 def create_tiled_texture(tile_img, target_size):
     try:
-        small_tile = cv2.resize(tile_img, (300, 300), interpolation=cv2.INTER_AREA)
+        small_tile = cv2.resize(tile_img, (500, 500), interpolation=cv2.INTER_AREA)
         texture = np.tile(small_tile, (target_size[1] // small_tile.shape[0] + 1, target_size[0] // small_tile.shape[1] + 1, 1))
         return texture[:target_size[1], :target_size[0]]
     except requests.exceptions.RequestException as e:
